@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anand Kumar Choudhary — Product Manager | Merchant Insights & Analytics</title>
+  
+  <!-- Inter Font as San Francisco analogue -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=SF+Pro+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome 6 for Apple-like clean monochrome icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', '"SF Pro Text"', '"SF Pro Display"', 'Helvetica Neue', 'sans-serif'],
+          },
+          colors: {
+            apple: {
+              bg: '#fbfbfd',
+              card: 'rgba(255, 255, 255, 0.8)',
+              border: 'rgba(0, 0, 0, 0.08)',
+              darkBg: '#000000',
+              darkSurface: '#121214',
+              darkCard: 'rgba(24, 24, 27, 0.75)',
+              darkBorder: 'rgba(255, 255, 255, 0.12)',
+              blue: '#0071e3',
+              blueHover: '#0077ed',
+              graySub: '#86868b',
+              grayLight: '#f5f5f7'
+            }
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+            'float-slow': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(16px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-6px)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Apple-like subtle scrollbars and glass effects */
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(134, 134, 139, 0.35);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(134, 134, 139, 0.6);
+    }
+    
+    .apple-glass {
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+    }
+
+    .apple-gradient-text {
+      background: linear-gradient(180deg, #1d1d1f 0%, #434344 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .dark .apple-gradient-text {
+      background: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .glow-card {
+      position: relative;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glow-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px -15px rgba(0, 113, 227, 0.12);
+    }
+    .dark .glow-card:hover {
+      box-shadow: 0 20px 45px -15px rgba(0, 113, 227, 0.25);
+    }
+  </style>
+</head>
+
+<body class="bg-apple-bg dark:bg-apple-darkBg text-[#1d1d1f] dark:text-[#f5f5f7] font-sans antialiased selection:bg-apple-blue selection:text-white transition-colors duration-500 min-h-screen">
+
+  <!-- Toast Notification System for Copy / Interactions -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 pointer-events-none transition-all duration-300 ease-out flex items-center gap-3 px-5 py-3 rounded-2xl bg-zinc-900/90 dark:bg-white/90 text-white dark:text-zinc-900 apple-glass shadow-2xl border border-white/10 dark:border-zinc-800">
+    <div id="toastIcon" class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs">
+      <i class="fa-solid fa-check"></i>
+    </div>
+    <span id="toastMessage" class="text-sm font-medium tracking-tight">Copied to clipboard</span>
+  </div>
+
+  <header class="fixed top-0 left-0 right-0 z-40 w-full transition-all duration-300">
+    <nav class="mx-auto max-w-6xl px-4 sm:px-6 py-3">
+      <div class="apple-glass bg-white/70 dark:bg-[#161617]/75 border border-black/5 dark:border-white/10 rounded-full px-4 sm:px-6 py-2.5 flex items-center justify-between shadow-sm transition-all duration-300">
+        <!-- Logo / Name initials -->
+        <a href="#hero" class="flex items-center gap-2 group">
+          <div class="w-8 h-8 rounded-full bg-black dark:bg-white flex items-center justify-center text-white dark:text-black font-semibold text-xs tracking-wider transition group-hover:scale-105">
+            AC
+          </div>
+          <span class="font-semibold text-sm tracking-tight text-[#1d1d1f] dark:text-white">Anand Choudhary</span>
+        </a>
+
+        <!-- Desktop Navigation Items -->
+        <div class="hidden md:flex items-center gap-7 text-xs font-medium tracking-normal text-[#6e6e73] dark:text-[#a1a1a6]">
+          <a href="#about" class="hover:text-black dark:hover:text-white transition">About</a>
+          <a href="#expertise" class="hover:text-black dark:hover:text-white transition">Competencies</a>
+          <a href="#experience" class="hover:text-black dark:hover:text-white transition">Experience</a>
+          <a href="#certifications" class="hover:text-black dark:hover:text-white transition">Credentials</a>
+          <a href="#contact" class="hover:text-black dark:hover:text-white transition">Contact</a>
+        </div>
+
+        <!-- Right Side Actions: Theme switcher & CTA -->
+        <div class="flex items-center gap-3">
+          <button id="themeToggleBtn" aria-label="Toggle Dark/Light Mode" class="w-8 h-8 rounded-full flex items-center justify-center text-[#6e6e73] dark:text-[#a1a1a6] hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition">
+            <i id="themeIcon" class="fa-regular fa-moon text-xs"></i>
+          </button>
+          
+          <a href="#contact" class="hidden sm:inline-flex items-center text-xs font-medium bg-black text-white dark:bg-white dark:text-black px-4 py-1.5 rounded-full hover:bg-apple-blue hover:text-white dark:hover:bg-apple-blue dark:hover:text-white transition duration-200">
+            Get in touch
+          </a>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button id="mobileMenuBtn" aria-label="Toggle menu" class="md:hidden w-8 h-8 flex items-center justify-center text-zinc-600 dark:text-zinc-300">
+            <i class="fa-solid fa-bars text-sm"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobileMenu" class="hidden md:hidden mt-2 p-4 apple-glass bg-white/95 dark:bg-[#161617]/95 border border-black/5 dark:border-white/10 rounded-2xl shadow-xl flex flex-col gap-3 text-sm font-medium">
+        <a href="#about" class="py-2 text-zinc-700 dark:text-zinc-200 mobile-nav-link">About</a>
+        <a href="#expertise" class="py-2 text-zinc-700 dark:text-zinc-200 mobile-nav-link">Competencies</a>
+        <a href="#experience" class="py-2 text-zinc-700 dark:text-zinc-200 mobile-nav-link">Experience</a>
+        <a href="#certifications" class="py-2 text-zinc-700 dark:text-zinc-200 mobile-nav-link">Credentials</a>
+        <a href="#contact" class="py-2 text-zinc-700 dark:text-zinc-200 mobile-nav-link">Contact</a>
+        <a href="mailto:anandkrchoudhary@gmail.com" class="mt-2 text-center py-2.5 rounded-xl bg-apple-blue text-white font-medium">Email Me Directly</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="pt-28 sm:pt-36">
+    <section id="hero" class="max-w-5xl mx-auto px-5 sm:px-8 text-center pb-20 pt-8 sm:pt-14 relative">
+      <!-- Location pill -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/[0.04] dark:bg-white/[0.08] border border-black/[0.05] dark:border-white/[0.08] text-xs font-medium text-[#6e6e73] dark:text-[#a1a1a6] mb-6 animate-fade-in">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>Dublin, Ireland</span>
+        <span class="text-zinc-400 dark:text-zinc-600">•</span>
+        <span>Cards & Payments Ecosystem</span>
+      </div>
+
+      <!-- Hero Main Title -->
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight apple-gradient-text leading-[1.08] mb-6">
+        Anand Kumar Choudhary.
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-lg sm:text-2xl font-medium text-[#6e6e73] dark:text-[#a1a1a6] max-w-2xl mx-auto tracking-tight mb-8">
+        Product Manager for <span class="text-black dark:text-white font-semibold">Merchant Insights & Analytics</span>. Architecting modern acquiring, billing, and transactional journeys.
+      </p>
+
+      <!-- Action buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-4 text-sm font-medium">
+        <a href="#contact" class="px-6 py-3 rounded-full bg-apple-blue text-white hover:bg-apple-blueHover transition shadow-lg shadow-blue-500/20 flex items-center gap-2">
+          <span>Connect with Anand</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/anand-kumar-choudhary-06887468" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/15 text-black dark:text-white transition flex items-center gap-2 border border-black/5 dark:border-white/10">
+          <i class="fa-brands fa-linkedin text-sm text-[#0077b5]"></i>
+          <span>LinkedIn Profile</span>
+        </a>
+        <button onclick="copyToClipboard('anandkrchoudhary@gmail.com', 'Email copied!')" class="px-5 py-3 rounded-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 text-[#6e6e73] dark:text-[#a1a1a6] hover:text-black dark:hover:text-white transition flex items-center gap-2 border border-black/10 dark:border-white/10">
+          <i class="fa-regular fa-clone text-xs"></i>
+          <span>Copy Email</span>
+        </button>
+      </div>
+
+      <!-- Key metric pills: Apple Keynote Style -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-3xl mx-auto mt-16 pt-8 border-t border-black/5 dark:border-white/10 text-left">
+        <div class="p-4 rounded-2xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/[0.03] dark:border-white/5">
+          <div class="text-2xl sm:text-3xl font-bold tracking-tight text-black dark:text-white">15+</div>
+          <div class="text-xs text-[#86868b] mt-0.5 font-medium">Years in Cards & FinTech</div>
+        </div>
+        <div class="p-4 rounded-2xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/[0.03] dark:border-white/5">
+          <div class="text-2xl sm:text-3xl font-bold tracking-tight text-black dark:text-white">6+ Yrs</div>
+          <div class="text-xs text-[#86868b] mt-0.5 font-medium">At Fiserv Ireland</div>
+        </div>
+        <div class="p-4 rounded-2xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/[0.03] dark:border-white/5">
+          <div class="text-2xl sm:text-3xl font-bold tracking-tight text-black dark:text-white">E2E</div>
+          <div class="text-xs text-[#86868b] mt-0.5 font-medium">Acquiring to Settlement</div>
+        </div>
+        <div class="p-4 rounded-2xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/[0.03] dark:border-white/5">
+          <div class="text-2xl sm:text-3xl font-bold tracking-tight text-black dark:text-white">SAFe / CSM</div>
+          <div class="text-xs text-[#86868b] mt-0.5 font-medium">Certified Agile Leader</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="py-20 bg-apple-grayLight dark:bg-[#0c0c0e] border-y border-black/[0.05] dark:border-white/5">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <h2 class="text-xs font-semibold uppercase tracking-widest text-apple-blue mb-2">Vision & Experience</h2>
+          <p class="text-3xl sm:text-4xl font-bold tracking-tight text-black dark:text-white">Crafted for payments scale.</p>
+          <p class="text-sm sm:text-base text-[#86868b] mt-3">Transforming complex clearing, reconciliation, and merchant lifecycle data into frictionless digital products.</p>
+        </div>
+
+        <!-- Bento Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          
+          <!-- Bento 1: Main Statement (Spans 2 cols) -->
+          <div class="md:col-span-2 p-8 rounded-3xl bg-white dark:bg-[#18181b] border border-black/5 dark:border-white/10 glow-card flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-2xl bg-blue-500/10 text-apple-blue flex items-center justify-center text-lg mb-6">
+                <i class="fa-solid fa-credit-card"></i>
+              </div>
+              <h3 class="text-2xl font-bold tracking-tight mb-4 text-black dark:text-white">
+                Deep Cards & Payments Specialization
+              </h3>
+              <p class="text-[#515154] dark:text-[#a1a1a6] text-sm sm:text-base leading-relaxed">
+                Experienced Product Manager with over 15 years of deep expertise across the cards and payments domain. Specializing in all merchant acquiring facets: from frictionless <strong>merchant onboarding</strong>, <strong>high-throughput transaction processing</strong>, dynamic <strong>billing</strong>, automated <strong>funding</strong>, to compliant <strong>invoicing and multi-tier reconciliation</strong>.
+              </p>
+            </div>
+            
+            <div class="pt-6 mt-6 border-t border-black/5 dark:border-white/5 flex flex-wrap gap-2 text-xs">
+              <span class="px-3 py-1 rounded-full bg-black/5 dark:bg-white/10 font-medium">Merchant Onboarding</span>
+              <span class="px-3 py-1 rounded-full bg-black/5 dark:bg-white/10 font-medium">Transaction Processing</span>
+              <span class="px-3 py-1 rounded-full bg-black/5 dark:bg-white/10 font-medium">Billing & Invoicing</span>
+              <span class="px-3 py-1 rounded-full bg-black/5 dark:bg-white/10 font-medium">Reconciliation Engines</span>
+            </div>
+          </div>
+
+          <!-- Bento 2: UX & Human-Centered Design -->
+          <div class="p-8 rounded-3xl bg-white dark:bg-[#18181b] border border-black/5 dark:border-white/10 glow-card flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-2xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-lg mb-6">
+                <i class="fa-solid fa-compass-drafting"></i>
+              </div>
+              <h3 class="text-xl font-bold tracking-tight mb-3 text-black dark:text-white">
+                UX & Design Philosophy
+              </h3>
+              <p class="text-[#515154] dark:text-[#a1a1a6] text-sm leading-relaxed">
+                Passionate about enhancing user experience (UX) and design principles to create intuitive, customer-focused products that improve engagement and satisfaction while delivering real business value.
+              </p>
+            </div>
+            <div class="pt-6">
+              <span class="text-xs font-semibold text-apple-blue flex items-center gap-1.5">
+                <i class="fa-solid fa-circle-check"></i> Customer-First Empathy
+              </span>
+            </div>
+          </div>
+
+          <!-- Bento 3: Digital Portals & API Backlog Execution -->
+          <div class="p-8 rounded-3xl bg-white dark:bg-[#18181b] border border-black/5 dark:border-white/10 glow-card flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-2xl bg-purple-500/10 text-purple-500 flex items-center justify-center text-lg mb-6">
+                <i class="fa-solid fa-cubes-stacked"></i>
+              </div>
+              <h3 class="text-xl font-bold tracking-tight mb-3 text-black dark:text-white">
+                APIs & Online Portals
+              </h3>
+              <p class="text-[#515154] dark:text-[#a1a1a6] text-sm leading-relaxed">
+                Adept at product backlog grooming and roadmap governance for digital merchant assets, portals, and developer-friendly API integrations driving seamless delivery of innovative solutions.
+              </p>
+            </div>
+            <div class="pt-4 flex items-center gap-2 text-xs text-[#86868b]">
+              <i class="fa-solid fa-code-fork"></i>
+              <span>High-frequency sprint cadences</span>
+            </div>
+          </div>
+
+          <!-- Bento 4: Global Footprint & Communication (Spans 2 cols) -->
+          <div class="md:col-span-2 p-8 rounded-3xl bg-white dark:bg-[#18181b] border border-black/5 dark:border-white/10 glow-card flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+            <div>
+              <div class="text-xs font-semibold uppercase tracking-wider text-apple-blue mb-1">Global Presence</div>
+              <h3 class="text-xl font-bold text-black dark:text-white tracking-tight">International Execution & Multilingual</h3>
+              <p class="text-sm text-[#515154] dark:text-[#a1a1a6] max-w-lg mt-1">
+                Extensive cross-border experience leading distributed engineering and consulting groups across Ireland (Dublin), UK (Basildon, Brighton), and India (Bengaluru, Pune).
+              </p>
+            </div>
+            <!-- Language Badges -->
+            <div class="flex flex-wrap gap-2 sm:self-center">
+              <div class="px-3.5 py-2 rounded-xl bg-black/[0.03] dark:bg-white/[0.05] border border-black/5 dark:border-white/10 text-center">
+                <div class="text-xs text-[#86868b]">Fluent</div>
+                <div class="text-sm font-semibold text-black dark:text-white">English</div>
+              </div>
+              <div class="px-3.5 py-2 rounded-xl bg-black/[0.03] dark:bg-white/[0.05] border border-black/5 dark:border-white/10 text-center">
+                <div class="text-xs text-[#86868b]">Native</div>
+                <div class="text-sm font-semibold text-black dark:text-white">Hindi</div>
+              </div>
+              <div class="px-3.5 py-2 rounded-xl bg-black/[0.03] dark:bg-white/[0.05] border border-black/5 dark:border-white/10 text-center">
+                <div class="text-xs text-[#86868b]">Native</div>
+                <div class="text-sm font-semibold text-black dark:text-white">Oriya</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="expertise" class="py-24 max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="text-center max-w-xl mx-auto mb-16">
+        <h2 class="text-xs font-semibold uppercase tracking-widest text-apple-blue mb-2">Core Competencies</h2>
+        <p class="text-3xl sm:text-4xl font-bold tracking-tight text-black dark:text-white">Precision across every layer.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Skill 1 -->
+        <div class="p-6 rounded-2xl bg-white dark:bg-[#151517] border border-black/5 dark:border-white/10 glow-card">
+          <div class="text-apple-blue text-2xl mb-4"><i class="fa-solid fa-rocket"></i></div>
+          <h4 class="font-bold text-base text-black dark:text-white mb-2">Product Launch</h4>
+          <p class="text-xs text-[#6e6e73] dark:text-[#a1a1a6] leading-relaxed">
+            Translating market opportunities into validated, commercialized fintech solutions with clear GTM execution.
+          </p>
+        </div>
+
+        <!-- Skill 2 -->
+        <div class="p-6 rounded-2xl bg-white dark:bg-[#151517] border border-black/5 dark:border-white/10 glow-card">
+          <div class="text-apple-blue text-2xl mb-4"><i class="fa-solid fa-users-viewfinder"></i></div>
+          <h4 class="font-bold text-base text-black dark:text-white mb-2">Customer Research</h4>
+          <p class="text-xs text-[#6e6e73] dark:text-[#a1a1a6] leading-relaxed">
+            Uncovering qualitative merchant pain-points, user interview synthesis, cohort behavioral analysis.
+          </p>
+        </div>
+
+        <!-- Skill 3 -->
+        <div class="p-6 rounded-2xl bg-white dark:bg-[#151517] border border-black/5 dark:border-white/10 glow-card">
+          <div class="text-apple-blue text-2xl mb-4"><i class="fa-solid fa-chart-pie"></i></div>
+          <h4 class="font-bold text-base text-black dark:text-white mb-2">Merchant Analytics</h4>
+          <p class="text-xs text-[#6e6e73] dark:text-[#a1a1a6] leading-relaxed">
+            Actionable dashboard reporting on authorization rates, chargebacks, settlement speeds, and transaction volume.
+          </p>
+        </div>
+
+        <!-- Skill 4 -->
+        <div class="p-6 rounded-2xl bg-white dark:bg-[#151517] border border-black/5 dark:border-white/10 glow-card">
+          <div class="text-apple-blue text-2xl mb-4"><i class="fa-solid fa-server"></i></div>
+          <h4 class="font-bold text-base text-black dark:text-white mb-2">Enterprise ECM</h4>
+          <p class="text-xs text-[#6e6e73] dark:text-[#a1a1a6] leading-relaxed">
+            Enterprise Content Management, automated documentation pipelines, document classification and indexing.
+          </p>
+        </div>
+
+        <!-- Skill 5 -->
+        <div class="p-6 rounded-2xl bg-white dark:bg-[#151517] border border-black/5 dark:border-white/10 glow-card">
+          <div class="text-apple-blue text-2xl mb-4"><i class="fa-solid fa-money-bill-transfer"></i></div>
+          <h4 class="font-bold text-base text-black dark:text-white mb-2">Billing & Settlement</h4>
+          <p class="text-xs text-[#6e6e73] dark:text-[#a1a1a6] leading-relaxed">
+            Interchange++ calculations, merchant funding schedules, automated dispute handling and daily reconciliation.
+          </p>
+        </div>
+
+        <!-- Skill 6 -->
+        <div class="p-6 rounded-2xl bg-white dark:bg-[#151517] border border-black/5 dark:border-white/10 glow-card">
+          <div class="text-apple-blue text-2xl mb-4"><i class="fa-solid fa-network-wired"></i></div>
+          <h4 class="font-bold text-base text-black dark:text-white mb-2">API Integrations</h4>
+          <p class="text-xs text-[#6e6e73] dark:text-[#a1a1a6] leading-relaxed">
+            RESTful payload modeling, webhook orchestration, merchant developer sandboxes, and partner ecosystems.
+          </p>
+        </div>
+
+        <!-- Skill 7 -->
+        <div class="p-6 rounded-2xl bg-white dark:bg-[#151517] border border-black/5 dark:border-white/10 glow-card">
+          <div class="text-apple-blue text-2xl mb-4"><i class="fa-solid fa-list-check"></i></div>
+          <h4 class="font-bold text-base text-black dark:text-white mb-2">Backlog Leadership</h4>
+          <p class="text-xs text-[#6e6e73] dark:text-[#a1a1a6] leading-relaxed">
+            WSJF prioritization, epic breakdown, user story mapping, acceptance criteria specification, and PI planning.
+          </p>
+        </div>
+
+        <!-- Skill 8 -->
+        <div class="p-6 rounded-2xl bg-white dark:bg-[#151517] border border-black/5 dark:border-white/10 glow-card">
+          <div class="text-apple-blue text-2xl mb-4"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <h4 class="font-bold text-base text-black dark:text-white mb-2">UX & User Experience</h4>
+          <p class="text-xs text-[#6e6e73] dark:text-[#a1a1a6] leading-relaxed">
+            Designing frictionless payment terminals and portal experiences reducing drop-off during onboarding and dispute review.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="py-24 bg-apple-grayLight dark:bg-[#0c0c0e] border-y border-black/[0.05] dark:border-white/5">
+      <div class="max-w-5xl mx-auto px-5 sm:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+          <div>
+            <h2 class="text-xs font-semibold uppercase tracking-widest text-apple-blue mb-2">Professional Journey</h2>
+            <p class="text-3xl sm:text-4xl font-bold tracking-tight text-black dark:text-white">15+ Years of Proven Impact.</p>
+          </div>
+          <p class="text-xs sm:text-sm text-[#86868b] max-w-md">
+            Continuous progression from technical analysis to enterprise product leadership across premier financial technology enterprises.
+          </p>
+        </div>
+
+        <!-- Timeline Tree Container -->
+        <div class="relative pl-6 sm:pl-10 border-l border-zinc-300 dark:border-zinc-800 space-y-12">
+
+          <!-- Entry 1: Fiserv - Product Manager -->
+          <div class="relative group">
+            <!-- Apple Timeline Bullet -->
+            <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-apple-blue border-4 border-white dark:border-black shadow"></div>
+            
+            <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#18181b] border border-black/5 dark:border-white/10 glow-card">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <div class="flex items-center gap-3">
+                  <span class="px-3 py-1 rounded-full text-[11px] font-semibold bg-blue-500/10 text-apple-blue tracking-wide uppercase">Present Role</span>
+                  <span class="text-xs text-[#86868b] font-medium"><i class="fa-regular fa-calendar mr-1"></i> May 2025 – Present</span>
+                </div>
+                <span class="text-xs text-[#86868b] flex items-center gap-1">
+                  <i class="fa-solid fa-location-dot"></i> Dublin, County Dublin, Ireland
+                </span>
+              </div>
+
+              <h3 class="text-xl sm:text-2xl font-bold text-black dark:text-white tracking-tight">Product Manager</h3>
+              <div class="text-sm font-semibold text-apple-blue mt-0.5 mb-4">Fiserv <span class="text-zinc-400 font-normal">• Merchant Insights & Analytics</span></div>
+
+              <p class="text-sm text-[#515154] dark:text-[#a1a1a6] leading-relaxed mb-4">
+                Leading product strategy, roadmaps, and delivery for merchant intelligence solutions. Focusing on advanced transaction visibility, reporting engines, settlement analytics, and seamless data accessibility for global merchants.
+              </p>
+
+              <div class="flex flex-wrap gap-2 text-xs">
+                <span class="px-2.5 py-1 rounded-lg bg-black/[0.03] dark:bg-white/[0.05] text-[#515154] dark:text-zinc-300 font-medium">Merchant Acquiring</span>
+                <span class="px-2.5 py-1 rounded-lg bg-black/[0.03] dark:bg-white/[0.05] text-[#515154] dark:text-zinc-300 font-medium">Transaction Analytics</span>
+                <span class="px-2.5 py-1 rounded-lg bg-black/[0.03] dark:bg-white/[0.05] text-[#515154] dark:text-zinc-300 font-medium">Fintech Portals</span>
+                <span class="px-2.5 py-1 rounded-lg bg-black/[0.03] dark:bg-white/[0.05] text-[#515154] dark:text-zinc-300 font-medium">GTM Strategy</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Entry 2: Fiserv - Product Owner -->
+          <div class="relative group">
+            <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-zinc-400 dark:bg-zinc-600 border-4 border-white dark:border-black"></div>
+            
+            <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#18181b] border border-black/5 dark:border-white/10 glow-card">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <span class="text-xs text-[#86868b] font-medium"><i class="fa-regular fa-calendar mr-1"></i> Nov 2020 – May 2025 (4 yrs 7 mos)</span>
+                <span class="text-xs text-[#86868b] flex items-center gap-1">
+                  <i class="fa-solid fa-location-dot"></i> Dublin, County Dublin, Ireland
+                </span>
+              </div>
+
+              <h3 class="text-xl sm:text-2xl font-bold text-black dark:text-white tracking-tight">Product Owner</h3>
+              <div class="text-sm font-semibold text-zinc-700 dark:text-zinc-300 mt-0.5 mb-4">Fiserv</div>
+
+              <p class="text-sm text-[#515154] dark:text-[#a1a1a6] leading-relaxed mb-4">
+                Spearheaded backlog grooming, user story creation, and sprint iterations for core acquiring capabilities including merchant onboarding flows, billing pipelines, funding reconciliation, and API integration endpoints. Collaborated closely with cross-functional UX and engineering squads.
+              </p>
+
+              <div class="flex flex-wrap gap-2 text-xs">
+                <span class="px-2.5 py-1 rounded-lg bg-black/[0.03] dark:bg-white/[0.05] text-[#515154] dark:text-zinc-300 font-medium">Backlog Grooming</span>
+                <span class="px-2.5 py-1 rounded-lg bg-black/[0.03] dark:bg-white/[0.05] text-[#515154] dark:text-zinc-300 font-medium">API Gateways</span>
+                <span class="px-2.5 py-1 rounded-lg bg-black/[0.03] dark:bg-white/[0.05] text-[#515154] dark:text-zinc-300 font-medium">Merchant Onboarding</span>
+                <span class="px-2.5 py-1 rounded-lg bg-black/[0.03] dark:bg-white/[0.05] text-[#515154] dark:text-zinc-300 font-medium">Scrum & SAFe</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Entry 3: Infosys Consulting - Senior Business Analyst -->
+          <div class="relative group">
+            <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-zinc-400 dark:bg-zinc-600 border-4 border-white dark:border-black"></div>
+            
+            <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#18181b] border border-black/5 dark:border-white/10 glow-card">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <span class="text-xs text-[#86868b] font-medium"><i class="fa-regular fa-calendar mr-1"></i> Sep 2016 – Oct 2020 (4 yrs 2 mos)</span>
+                <span class="text-xs text-[#86868b] flex items-center gap-1">
+                  <i class="fa-solid fa-location-dot"></i> Basildon, UK & Bengaluru, India
+                </span>
+              </div>
+
+              <h3 class="text-xl sm:text-2xl font-bold text-black dark:text-white tracking-tight">Senior Business Analyst</h3>
+              <div class="text-sm font-semibold text-zinc-700 dark:text-zinc-300 mt-0.5 mb-4">Infosys Consulting</div>
+
+              <p class="text-sm text-[#515154] dark:text-[#a1a1a6] leading-relaxed mb-4">
+                Consulted enterprise banking and card payment clients on end-to-end payment operations, functional requirements, architectural transformations, customer journeys, and content management modernization.
+              </p>
+
+              <div class="flex flex-wrap gap-2 text-xs">
+                <span class="px-2.5 py-1 rounded-lg bg-black/[0.03] dark:bg-white/[0.05] text-[#515154] dark:text-zinc-300 font-medium">Business Analysis</span>
+                <span class="px-2.5 py-1 rounded-lg bg-black/[0.03] dark:bg-white/[0.05] text-[#515154] dark:text-zinc-300 font-medium">Client Advisory</span>
+                <span class="px-2.5 py-1 rounded-lg bg-black/[0.03] dark:bg-white/[0.05] text-[#515154] dark:text-zinc-300 font-medium">Cards & Invoicing</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Entry 4: Infosys - Business System Analyst & Incident Support -->
+          <div class="relative group">
+            <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-zinc-400 dark:bg-zinc-600 border-4 border-white dark:border-black"></div>
+            
+            <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#18181b] border border-black/5 dark:border-white/10 glow-card">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <span class="text-xs text-[#86868b] font-medium"><i class="fa-regular fa-calendar mr-1"></i> Jan 2010 – Aug 2016 (6 yrs 8 mos total)</span>
+                <span class="text-xs text-[#86868b] flex items-center gap-1">
+                  <i class="fa-solid fa-location-dot"></i> Pune & Brighton, UK
+                </span>
+              </div>
+
+              <div class="space-y-4">
+                <div>
+                  <h3 class="text-lg sm:text-xl font-bold text-black dark:text-white tracking-tight">Business System Analyst</h3>
+                  <div class="text-xs text-[#86868b]">Jun 2012 – Aug 2016 • Pune & Brighton</div>
+                  <p class="text-sm text-[#515154] dark:text-[#a1a1a6] mt-2">
+                    System specifications, interface mappings, data flow modeling, and integration requirements for core financial engines and ECM platforms.
+                  </p>
+                </div>
+
+                <div class="pt-4 border-t border-black/5 dark:border-white/5">
+                  <h3 class="text-base font-bold text-black dark:text-white tracking-tight">Incident Support Analyst</h3>
+                  <div class="text-xs text-[#86868b]">Jan 2010 – May 2012 (2 yrs 5 mos)</div>
+                  <p class="text-sm text-[#515154] dark:text-[#a1a1a6] mt-1">
+                    Mission-critical production issue triaging, root-cause resolution, SLA governance, and operational system stability for payment transactions.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section id="certifications" class="py-24 max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        
+        <!-- Certifications Column -->
+        <div>
+          <div class="mb-8">
+            <h2 class="text-xs font-semibold uppercase tracking-widest text-apple-blue mb-2">Validated Expertise</h2>
+            <p class="text-3xl font-bold tracking-tight text-black dark:text-white">Professional Certifications.</p>
+          </div>
+
+          <div class="space-y-4">
+            <!-- Cert 1 -->
+            <div class="p-6 rounded-2xl bg-white dark:bg-[#151517] border border-black/5 dark:border-white/10 glow-card flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-apple-blue flex items-center justify-center text-xl shrink-0">
+                <i class="fa-solid fa-certificate"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-base text-black dark:text-white">Certified SAFe® 6 Product Owner / Product Manager</h4>
+                <div class="text-xs font-medium text-apple-blue mt-0.5">Scaled Agile Framework</div>
+                <p class="text-xs text-[#6e6e73] dark:text-[#a1a1a6] mt-2 leading-relaxed">
+                  Enterprise-scale agile product delivery, Program Increment (PI) execution, value stream orchestration, and backlog synchronization.
+                </p>
+              </div>
+            </div>
+
+            <!-- Cert 2 -->
+            <div class="p-6 rounded-2xl bg-white dark:bg-[#151517] border border-black/5 dark:border-white/10 glow-card flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center text-xl shrink-0">
+                <i class="fa-solid fa-award"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-base text-black dark:text-white">Certified Scrum Master (CSM)</h4>
+                <div class="text-xs font-medium text-emerald-500 mt-0.5">Scrum Alliance</div>
+                <p class="text-xs text-[#6e6e73] dark:text-[#a1a1a6] mt-2 leading-relaxed">
+                  Empirical sprint facilitation, removing impediments, fostering team self-organization, and high-velocity shipping culture.
+                </p>
+              </div>
+            </div>
+
+            <!-- Cert 3 -->
+            <div class="p-6 rounded-2xl bg-white dark:bg-[#151517] border border-black/5 dark:border-white/10 glow-card flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-500 flex items-center justify-center text-xl shrink-0">
+                <i class="fa-solid fa-microchip"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-base text-black dark:text-white">Kofax Transformation Module 6.0</h4>
+                <div class="text-xs font-medium text-purple-500 mt-0.5">Technical Solution Specialist</div>
+                <p class="text-xs text-[#6e6e73] dark:text-[#a1a1a6] mt-2 leading-relaxed">
+                  Advanced automated classification, extraction, enterprise content management (ECM) document processing algorithms.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education & Academic Foundation Column -->
+        <div>
+          <div class="mb-8">
+            <h2 class="text-xs font-semibold uppercase tracking-widest text-apple-blue mb-2">Academic Foundation</h2>
+            <p class="text-3xl font-bold tracking-tight text-black dark:text-white">Engineering & Science.</p>
+          </div>
+
+          <div class="space-y-4">
+            <!-- Degree 1 -->
+            <div class="p-6 rounded-2xl bg-white dark:bg-[#151517] border border-black/5 dark:border-white/10 glow-card">
+              <div class="flex items-center justify-between text-xs text-[#86868b] mb-2">
+                <span>2005 – 2009</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-black/[0.04] dark:bg-white/[0.06] font-medium">B.Tech</span>
+              </div>
+              <h4 class="text-lg font-bold text-black dark:text-white">Bachelor of Technology (B.Tech)</h4>
+              <div class="text-sm font-semibold text-apple-blue mt-0.5">Applied Electronics</div>
+              <div class="text-xs text-[#6e6e73] dark:text-[#a1a1a6] mt-1 font-medium">
+                Biju Patnaik University of Technology, Odisha
+              </div>
+              <p class="text-xs text-[#515154] dark:text-[#a1a1a6] mt-3 leading-relaxed">
+                Strong quantitative and engineering grounding in circuit theory, signal processing, digital systems, and computational logic.
+              </p>
+            </div>
+
+            <!-- Degree 2 -->
+            <div class="p-6 rounded-2xl bg-white dark:bg-[#151517] border border-black/5 dark:border-white/10 glow-card">
+              <div class="flex items-center justify-between text-xs text-[#86868b] mb-2">
+                <span>2002 – 2004</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-black/[0.04] dark:bg-white/[0.06] font-medium">Pre-University</span>
+              </div>
+              <h4 class="text-lg font-bold text-black dark:text-white">High School, Science</h4>
+              <div class="text-sm font-semibold text-zinc-700 dark:text-zinc-300 mt-0.5">Physics, Chemistry, Mathematics</div>
+              <div class="text-xs text-[#6e6e73] dark:text-[#a1a1a6] mt-1 font-medium">
+                St. Paul's School, Rourkela, Orissa
+              </div>
+            </div>
+
+            <!-- Language Proficiency Summary -->
+            <div class="p-6 rounded-2xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/5 dark:border-white/10">
+              <div class="text-xs uppercase tracking-wider font-semibold text-[#86868b] mb-3">Multilingual Capability</div>
+              <div class="grid grid-cols-3 gap-2 text-center">
+                <div class="p-2.5 rounded-xl bg-white dark:bg-[#18181b] border border-black/5 dark:border-white/5">
+                  <div class="text-sm font-bold text-black dark:text-white">English</div>
+                  <div class="text-[11px] text-[#86868b]">Professional</div>
+                </div>
+                <div class="p-2.5 rounded-xl bg-white dark:bg-[#18181b] border border-black/5 dark:border-white/5">
+                  <div class="text-sm font-bold text-black dark:text-white">Hindi</div>
+                  <div class="text-[11px] text-[#86868b]">Native</div>
+                </div>
+                <div class="p-2.5 rounded-xl bg-white dark:bg-[#18181b] border border-black/5 dark:border-white/5">
+                  <div class="text-sm font-bold text-black dark:text-white">Oriya</div>
+                  <div class="text-[11px] text-[#86868b]">Native</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-apple-grayLight dark:bg-[#0c0c0e] border-t border-black/[0.05] dark:border-white/5">
+      <div class="max-w-4xl mx-auto px-5 sm:px-8 text-center">
+        
+        <h2 class="text-xs font-semibold uppercase tracking-widest text-apple-blue mb-2">Get in Touch</h2>
+        <p class="text-3xl sm:text-5xl font-bold tracking-tight text-black dark:text-white mb-4">Let's discuss payments & products.</p>
+        <p class="text-sm sm:text-base text-[#86868b] max-w-xl mx-auto mb-12">
+          Open to executive leadership discussions, merchant fintech advisory, payment infrastructure innovations, and industry networking.
+        </p>
+
+        <!-- Interactive Direct Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left mb-10">
+          
+          <!-- Email Card -->
+          <div class="p-6 rounded-3xl bg-white dark:bg-[#18181b] border border-black/5 dark:border-white/10 glow-card flex items-center justify-between group">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-blue-500/10 text-apple-blue flex items-center justify-center text-lg">
+                <i class="fa-regular fa-envelope"></i>
+              </div>
+              <div>
+                <div class="text-xs text-[#86868b] font-medium">Direct Email</div>
+                <a href="mailto:anandkrchoudhary@gmail.com" class="text-sm sm:text-base font-semibold text-black dark:text-white hover:text-apple-blue transition break-all">
+                  anandkrchoudhary@gmail.com
+                </a>
+              </div>
+            </div>
+            <button onclick="copyToClipboard('anandkrchoudhary@gmail.com', 'Email copied!')" title="Copy Email" class="w-10 h-10 rounded-xl bg-black/[0.03] dark:bg-white/[0.06] flex items-center justify-center text-zinc-500 hover:text-black dark:hover:text-white transition">
+              <i class="fa-regular fa-copy text-sm"></i>
+            </button>
+          </div>
+
+          <!-- Phone Card -->
+          <div class="p-6 rounded-3xl bg-white dark:bg-[#18181b] border border-black/5 dark:border-white/10 glow-card flex items-center justify-between group">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center text-lg">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div>
+                <div class="text-xs text-[#86868b] font-medium">Mobile / WhatsApp</div>
+                <a href="tel:+3530899460327" class="text-sm sm:text-base font-semibold text-black dark:text-white hover:text-emerald-500 transition">
+                  +353 0899460327
+                </a>
+              </div>
+            </div>
+            <button onclick="copyToClipboard('+3530899460327', 'Phone number copied!')" title="Copy Phone Number" class="w-10 h-10 rounded-xl bg-black/[0.03] dark:bg-white/[0.06] flex items-center justify-center text-zinc-500 hover:text-black dark:hover:text-white transition">
+              <i class="fa-regular fa-copy text-sm"></i>
+            </button>
+          </div>
+
+          <!-- Location Card -->
+          <div class="p-6 rounded-3xl bg-white dark:bg-[#18181b] border border-black/5 dark:border-white/10 glow-card flex items-center justify-between group">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-lg">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div>
+                <div class="text-xs text-[#86868b] font-medium">Location</div>
+                <div class="text-sm sm:text-base font-semibold text-black dark:text-white">
+                  Leona Apt, Honeypark, Dún Laoghaire
+                </div>
+                <div class="text-xs text-[#86868b]">Dublin, County Dublin, Ireland</div>
+              </div>
+            </div>
+            <button onclick="copyToClipboard('Leona Apartment, Honeypark, Dun Laoghaire, Dublin, Ireland', 'Address copied!')" title="Copy Address" class="w-10 h-10 rounded-xl bg-black/[0.03] dark:bg-white/[0.06] flex items-center justify-center text-zinc-500 hover:text-black dark:hover:text-white transition">
+              <i class="fa-regular fa-copy text-sm"></i>
+            </button>
+          </div>
+
+          <!-- LinkedIn Card -->
+          <div class="p-6 rounded-3xl bg-white dark:bg-[#18181b] border border-black/5 dark:border-white/10 glow-card flex items-center justify-between group">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-[#0077b5]/10 text-[#0077b5] flex items-center justify-center text-lg">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </div>
+              <div>
+                <div class="text-xs text-[#86868b] font-medium">LinkedIn Network</div>
+                <div class="text-sm sm:text-base font-semibold text-black dark:text-white">
+                  Anand Kumar Choudhary
+                </div>
+                <div class="text-xs text-[#86868b]">Connect & InMail</div>
+              </div>
+            </div>
+            <a href="https://www.linkedin.com/in/anand-kumar-choudhary-06887468" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-black/[0.03] dark:bg-white/[0.06] flex items-center justify-center text-zinc-500 hover:text-[#0077b5] transition" title="Open LinkedIn">
+              <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Direct Action Bar -->
+        <div class="inline-flex flex-wrap items-center justify-center gap-3">
+          <a href="mailto:anandkrchoudhary@gmail.com" class="px-8 py-3.5 rounded-full bg-apple-blue hover:bg-apple-blueHover text-white font-medium text-sm transition shadow-lg shadow-blue-500/25 flex items-center gap-2">
+            <i class="fa-solid fa-paper-plane text-xs"></i>
+            <span>Send Direct Message</span>
+          </a>
+          <button onclick="window.print()" class="px-6 py-3.5 rounded-full bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/15 text-black dark:text-white font-medium text-sm transition flex items-center gap-2 border border-black/5 dark:border-white/10">
+            <i class="fa-solid fa-file-arrow-down text-xs"></i>
+            <span>Export / Print Profile</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-12 border-t border-black/[0.05] dark:border-white/5 text-xs text-[#86868b]">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="font-semibold text-black dark:text-white">Anand Kumar Choudhary</span>
+        <span>•</span>
+        <span>Product Leader in Merchant Analytics & FinTech</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="#hero" class="hover:text-black dark:hover:text-white transition">Back to top ↑</a>
+        <a href="https://www.linkedin.com/in/anand-kumar-choudhary-06887468" target="_blank" rel="noopener noreferrer" class="hover:text-black dark:hover:text-white transition">LinkedIn</a>
+        <a href="mailto:anandkrchoudhary@gmail.com" class="hover:text-black dark:hover:text-white transition">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Theme Switcher Logic (Defaults to dark or system preference)
+    const htmlElement = document.documentElement;
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const themeIcon = document.getElementById('themeIcon');
+
+    function applyTheme(isDark) {
+      if (isDark) {
+        htmlElement.classList.add('dark');
+        themeIcon.className = 'fa-regular fa-sun text-xs text-amber-400';
+      } else {
+        htmlElement.classList.remove('dark');
+        themeIcon.className = 'fa-regular fa-moon text-xs';
+      }
+    }
+
+    // Initialize with system preference or default to dark for Apple sleekness
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(prefersDark);
+
+    themeToggleBtn.addEventListener('click', () => {
+      const isCurrentlyDark = htmlElement.classList.contains('dark');
+      applyTheme(!isCurrentlyDark);
+    });
+
+    // Mobile Navigation Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+        });
+      });
+    }
+
+    // Safe Copy to Clipboard function
+    function copyToClipboard(text, customMessage) {
+      const message = customMessage || 'Copied to clipboard';
+      
+      try {
+        const tempTextArea = document.createElement('textarea');
+        tempTextArea.value = text;
+        tempTextArea.style.position = 'fixed';
+        tempTextArea.style.left = '-9999px';
+        tempTextArea.style.top = '0';
+        document.body.appendChild(tempTextArea);
+        tempTextArea.focus();
+        tempTextArea.select();
+        
+        const successful = document.execCommand('copy');
+        document.body.removeChild(tempTextArea);
+        
+        if (successful) {
+          showToast(message);
+        } else {
+          showToast('Failed to copy text');
+        }
+      } catch (err) {
+        showToast('Could not copy');
+      }
+    }
+
+    // Toast Notification Display Helper
+    let toastTimeout;
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMessage = document.getElementById('toastMessage');
+      
+      if (!toast || !toastMessage) return;
+      
+      toastMessage.textContent = message;
+      toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+      }, 2600);
+    }
+  </script>
+</body>
+</html>
